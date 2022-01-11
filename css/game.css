@@ -41,7 +41,7 @@
     height: 60px;
     transform: rotate(-90deg);
     background: url('./car.png');
-    background-color: white;
+    /* background-color: white; */
     position: absolute;
     bottom: 140px;
     background-repeat:no-repeat;
