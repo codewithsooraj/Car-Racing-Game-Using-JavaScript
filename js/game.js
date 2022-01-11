@@ -84,10 +84,10 @@ function playGame() {
     if (player.start) {
         moveLines();
         moveOppCars(car);
-        if(keys.ArrowUp && player.y > road.top + 80) { player.y -= player.speed }
-        if(keys.ArrowDown && player.y < road.bottom - 80) { player.y += player.speed }
-        if(keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
-        if(keys.ArrowRight && player.x < road.width - 50) { player.x += player.speed }
+        if(keys.ArrowUp && player.y > road.top + 150) { player.y -= player.speed }
+        if(keys.ArrowDown && player.y < road.bottom - 100) { player.y += player.speed }
+        if(keys.ArrowLeft && player.x > -15) { player.x -= player.speed }
+        if(keys.ArrowRight && player.x < road.width - 100) { player.x += player.speed }
 
         car.style.top = player.y + "px";
         car.style.left = player.x + "px";
@@ -120,17 +120,42 @@ function start() {
         oppCar.setAttribute('class','oppCar')
         oppCar.y = ((i+1) * 350) * -1;
         oppCar.style.top = (oppCar.y) + "px";
-        oppCar.style.background = randomColor();
+        let opp = ['../cars/opp1.png',
+                    '../cars/opp2.png',
+                    '../cars/opp3.png',
+                    '../cars/opp4.png',
+                    '../cars/opp5.png',
+                    '../cars/opp6.png',
+                    '../cars/opp7.png',
+                    '../cars/opp8.png',
+                    '../cars/opp9.png',
+                    '../cars/opp10.png',
+                    '../cars/opp11.png',
+                    '../cars/opp12.png',
+                    '../cars/opp13.png',
+                    '../cars/opp14.png',
+                    '../cars/opp15.png',
+                    '../cars/opp16.png',
+                    '../cars/opp17.png',
+                    '../cars/opp18.png',
+                    '../cars/opp19.png',
+                    '../cars/opp20.png',
+                    '../cars/opp21.png',
+                    '../cars/opp22.png',]
+                    var randomNumber = Math.floor(Math.random() * opp.length);
+                    var ocars = 'url(' + opp[randomNumber] + ')';
+                    oppCar.style.backgroundImage = ocars; 
+        // oppCar.style.background = randomColor();
         oppCar.style.left = Math.floor(Math.random() * 350) + "px";
         gameArea.appendChild(oppCar)
     }
-function randomColor(){
-    function c(){
-        let hex = Math.floor(Math.random() * 256).toString(16);
-        return ("0" + String(hex)).substr(-2);
-    }
-    return "#"+c()+c()+c();
-}
+    // function randomColor(){
+    //     function c(){
+    //         let hex = Math.floor(Math.random() * 256).toString(16);
+    //         return ("0" + String(hex)).substr(-2);
+    //     }
+    //     return "#"+c()+c()+c();
+    // }
 
     let car = document.createElement('div');
     car.setAttribute('class', 'car');
